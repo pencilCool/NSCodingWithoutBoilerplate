@@ -11,25 +11,16 @@
 
 @implementation CodableObject
 
-//- (NSArray *)propertyNames {
-//    unsigned int propertyCount;
-//    objc_property_t *properties = class_copyPropertyList([self class], &propertyCount);
-//    NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:propertyCount];
-//    for (int i = 0; i < propertyCount; i++) {
-//        objc_property_t property = properties[i];
-//        const char *propertyName = property_getName(property);
-//        NSString *key = @(propertyName);
-//        [mutableArray addObject:key];
-//    }
-//    free(properties);
-//    return mutableArray;
-//}
-
-
 - (NSArray *)propertyNames
 {
     // Loop through our superclasses until we hit NSObject
-    NSMutableArray *array = [NSMutableArray array];
+    NSMutableArray *array = objc_getAssociatedObject([self class], _cmd);
+    if (array)
+    {
+        return array;
+    }
+    array = [NSMutableArray array];
+    
     Class subclass = [self class];
     while (subclass != [NSObject class])
     {
@@ -61,6 +52,10 @@
         free(properties);
         subclass = [subclass superclass]; // NSObject superclass == nil
     }
+    
+    // Cache and return array
+    objc_setAssociatedObject([self class], _cmd, array,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return array;
 }
 
