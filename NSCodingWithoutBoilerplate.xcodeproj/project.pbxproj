@@ -13,6 +13,10 @@
 		B386AB521EF0B2D900700C5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B386AB501EF0B2D900700C5C /* Main.storyboard */; };
 		B386AB541EF0B2D900700C5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B386AB531EF0B2D900700C5C /* Assets.xcassets */; };
 		B386AB571EF0B2D900700C5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B386AB551EF0B2D900700C5C /* LaunchScreen.storyboard */; };
+		B386AB601EF0B2F300700C5C /* Foo.m in Sources */ = {isa = PBXBuildFile; fileRef = B386AB5F1EF0B2F300700C5C /* Foo.m */; };
+		B386AB631EF0CA1500700C5C /* CodableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B386AB621EF0CA1500700C5C /* CodableObject.m */; };
+		B386AB661EF0CACE00700C5C /* Foo2.m in Sources */ = {isa = PBXBuildFile; fileRef = B386AB651EF0CACE00700C5C /* Foo2.m */; };
+		B386AB691EF0D46A00700C5C /* subClassOfFoo2.m in Sources */ = {isa = PBXBuildFile; fileRef = B386AB681EF0D46A00700C5C /* subClassOfFoo2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		B386AB531EF0B2D900700C5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B386AB561EF0B2D900700C5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B386AB581EF0B2D900700C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B386AB5E1EF0B2F300700C5C /* Foo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foo.h; sourceTree = "<group>"; };
+		B386AB5F1EF0B2F300700C5C /* Foo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foo.m; sourceTree = "<group>"; };
+		B386AB611EF0CA1500700C5C /* CodableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodableObject.h; sourceTree = "<group>"; };
+		B386AB621EF0CA1500700C5C /* CodableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodableObject.m; sourceTree = "<group>"; };
+		B386AB641EF0CACE00700C5C /* Foo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foo2.h; sourceTree = "<group>"; };
+		B386AB651EF0CACE00700C5C /* Foo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foo2.m; sourceTree = "<group>"; };
+		B386AB671EF0D46A00700C5C /* subClassOfFoo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subClassOfFoo2.h; sourceTree = "<group>"; };
+		B386AB681EF0D46A00700C5C /* subClassOfFoo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subClassOfFoo2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,14 @@
 				B386AB4B1EF0B2D900700C5C /* AppDelegate.m */,
 				B386AB4D1EF0B2D900700C5C /* ViewController.h */,
 				B386AB4E1EF0B2D900700C5C /* ViewController.m */,
+				B386AB5E1EF0B2F300700C5C /* Foo.h */,
+				B386AB5F1EF0B2F300700C5C /* Foo.m */,
+				B386AB611EF0CA1500700C5C /* CodableObject.h */,
+				B386AB621EF0CA1500700C5C /* CodableObject.m */,
+				B386AB641EF0CACE00700C5C /* Foo2.h */,
+				B386AB651EF0CACE00700C5C /* Foo2.m */,
+				B386AB671EF0D46A00700C5C /* subClassOfFoo2.h */,
+				B386AB681EF0D46A00700C5C /* subClassOfFoo2.m */,
 				B386AB501EF0B2D900700C5C /* Main.storyboard */,
 				B386AB531EF0B2D900700C5C /* Assets.xcassets */,
 				B386AB551EF0B2D900700C5C /* LaunchScreen.storyboard */,
@@ -150,9 +170,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B386AB631EF0CA1500700C5C /* CodableObject.m in Sources */,
+				B386AB601EF0B2F300700C5C /* Foo.m in Sources */,
+				B386AB691EF0D46A00700C5C /* subClassOfFoo2.m in Sources */,
 				B386AB4F1EF0B2D900700C5C /* ViewController.m in Sources */,
 				B386AB4C1EF0B2D900700C5C /* AppDelegate.m in Sources */,
 				B386AB491EF0B2D900700C5C /* main.m in Sources */,
+				B386AB661EF0CACE00700C5C /* Foo2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
