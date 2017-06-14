@@ -1,5 +1,9 @@
 # NSCodingWithoutBoilerplate
 
+一个编写NSCoding 相关代码时候，可以用来偷懒的工具类。
+
+
+
 版本一的问题是：
 
 1. 属性列表不能直接获取到父类的属性。
