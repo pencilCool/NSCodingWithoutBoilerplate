@@ -17,3 +17,21 @@
 	* 定时器
 	* 一些为了追踪运行时状态的标志位。
 
+
+修复后问题1 后的输出结果
+
+```
+2017-06-14 11:08:47.829 NSCodingWithoutBoilerplate[9170:951922] someFoo2.propertyNames = (
+    property1,
+    property2,
+    property3
+)
+2017-06-14 11:08:47.829 NSCodingWithoutBoilerplate[9170:951922] subClassOfFoo2.propertyNames = (
+    property4,
+    property5,
+    property6,
+    property1,
+    property2,
+    property3
+)	
+```

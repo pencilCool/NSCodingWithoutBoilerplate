@@ -11,18 +11,57 @@
 
 @implementation CodableObject
 
-- (NSArray *)propertyNames {
-    unsigned int propertyCount;
-    objc_property_t *properties = class_copyPropertyList([self class], &propertyCount);
-    NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:propertyCount];
-    for (int i = 0; i < propertyCount; i++) {
-        objc_property_t property = properties[i];
-        const char *propertyName = property_getName(property);
-        NSString *key = @(propertyName);
-        [mutableArray addObject:key];
+//- (NSArray *)propertyNames {
+//    unsigned int propertyCount;
+//    objc_property_t *properties = class_copyPropertyList([self class], &propertyCount);
+//    NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:propertyCount];
+//    for (int i = 0; i < propertyCount; i++) {
+//        objc_property_t property = properties[i];
+//        const char *propertyName = property_getName(property);
+//        NSString *key = @(propertyName);
+//        [mutableArray addObject:key];
+//    }
+//    free(properties);
+//    return mutableArray;
+//}
+
+
+- (NSArray *)propertyNames
+{
+    // Loop through our superclasses until we hit NSObject
+    NSMutableArray *array = [NSMutableArray array];
+    Class subclass = [self class];
+    while (subclass != [NSObject class])
+    {
+        unsigned int propertyCount;
+        objc_property_t *properties = class_copyPropertyList(subclass,
+                                                             &propertyCount);
+        for (int i = 0; i < propertyCount; i++)
+        {
+            // Get property name
+            objc_property_t property = properties[i];
+            const char *propertyName = property_getName(property);
+            NSString *key = @(propertyName);
+            
+            // Check if there is a backing ivar
+            char *ivar = property_copyAttributeValue(property, "V");
+            if (ivar)
+            {
+                // Check if ivar has KVC-compliant name
+                NSString *ivarName = @(ivar);
+                if ([ivarName isEqualToString:key] ||
+                    [ivarName isEqualToString:[@"_" stringByAppendingString:key]])
+                {
+                    // setValue:forKey: will work
+                    [array addObject:key];
+                }
+                free(ivar);
+            }
+        }
+        free(properties);
+        subclass = [subclass superclass]; // NSObject superclass == nil
     }
-    free(properties);
-    return mutableArray;
+    return array;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
